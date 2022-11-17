@@ -22,17 +22,17 @@ server.set("view engine", "ejs");
 //   }
 // });
 
-const checkUser = (req, res, next) => {
-  //we can take input or data from the user in three ways
-  // 1. params 2. query and 3. body
-  console.log(process.env.PASSWORD);
-  const { username, password } = req.query;
-  if (username == "imran" && password == process.env.PASSWORD) {
-    next();
-  } else {
-    res.status(401).send("Unauthorised user, please check your inputs");
-  }
-};
+// const checkUser = (req, res, next) => {
+//   //we can take input or data from the user in three ways
+//   // 1. params 2. query and 3. body
+//   console.log(process.env.PASSWORD);
+//   const { username, password } = req.query;
+//   if (username == "imran" && password == process.env.PASSWORD) {
+//     next();
+//   } else {
+//     res.status(401).send("Unauthorised user, please check your inputs");
+//   }
+// };
 
 //server routes or services
 //Four http methods
@@ -53,22 +53,22 @@ const checkUser = (req, res, next) => {
 // 404 - Not found - default
 // 500 - Internal server error
 
-server.get("/", (req, res) => {
-  res.render("index", { name: req.query.name });
-});
+// server.get("/", (req, res) => {
+//   res.render("index", { name: req.query.name });
+// });
 
-server.get("/signin",(req,res)=>{
-    res.render("signin")
-})
+// server.get("/signin",(req,res)=>{
+//     res.render("signin")
+// })
 
-server.get("/user/:id", (req, res) => {
-  console.log(req.params);
-  res.send("hey user and your id is " + req.params.id);
-});
+// server.get("/user/:id", (req, res) => {
+//   console.log(req.params);
+//   res.send("hey user and your id is " + req.params.id);
+// });
 
-server.get("/user-data", checkUser, (req, res) => {
-  res.send("User key is " + 14652);
-});
+// server.get("/user-data", checkUser, (req, res) => {
+//   res.send("User key is " + 14652);
+// });
 
 //server start
 server.listen(8000, () => console.log("server started..."));
