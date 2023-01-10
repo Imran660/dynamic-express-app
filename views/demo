@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Title</title>
+  </head>
+  <body>
+    <button onclick="demo()">Click to me send request</button>
+    <script>
+      function demo() {
+        fetch("http://localhost:8000/demo-service")
+          .then((res) => res.json())
+          .then((data) => console.log(data))
+          .catch((err) => console.log(err));
+      }
+    </script>
+  </body>
+</html>
